@@ -728,7 +728,7 @@ risegradient.Parent = risetext
 local risetextversion = risetext:Clone()
 local risetextcustom = risetext:Clone()
 risetextversion.TextSize = 26
-risetextversion.Text = "5.94"
+risetextversion.Text = "3"
 risetextversion.Position = UDim2.new(0, 230, 0, 6)
 risetextversion.Parent = risetext
 risetextversion.TextLabel.TextSize = 26
@@ -1142,7 +1142,7 @@ local NameTags = windowtabs.Render:CreateButton({
                     end
 
                     if plr then
-                        if isAlive(plr) and plr:GetAttribute("Team") ~= lplr:GetAttribute("Team") and plr ~= lplr then
+                        if isAlive(plr) and pcall(function() plr:GetAttribute("Team") end) ~= lplr:GetAttribute("Team") and plr ~= lplr then
                             local headPos, headVis = workspace.CurrentCamera:WorldToViewportPoint((plr.Character.HumanoidRootPart:GetRenderCFrame() * CFrame.new(0, plr.Character.Head.Size.Y + plr.Character.HumanoidRootPart.Size.Y, 0)).Position)
                             
                             if headVis then
